@@ -2,6 +2,7 @@
 /*
 	Plugin Name: Elodin llms.txt editor
 	Plugin URI: https://elod.in
+    Update URI: https://github.com/jonschr/elodin-llms-editor
     Description: Just another plugin
 	Version: 0.1
     Author: Jon Schroeder
@@ -137,3 +138,13 @@ function elodin_llms_editor_render_llms_txt() {
 
 	exit;
 }
+
+require_once __DIR__ . '/vendor/plugin-update-checker/plugin-update-checker.php';
+
+$elodin_llms_editor_update_checker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/jonschr/elodin-llms-editor',
+	__FILE__,
+	'elodin-llms-editor'
+);
+
+$elodin_llms_editor_update_checker->setBranch( 'master' );
